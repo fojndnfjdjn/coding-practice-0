@@ -18,7 +18,7 @@ const getData = async () => {
     });
 
     // add a new table
-    const table = await db.addTable(`entries_${process.env.COUNT}`, [
+    const table = await db.addTable(`entries_${parseInt(process.env.COUNT, 10) - 200}`, [
       'uniqueId',
       'owner_name',
       'ward_number',
@@ -29,7 +29,7 @@ const getData = async () => {
       'email_address',
     ]);
 
-    for (let index = 0; index < 850; index++) {
+    for (let index = 0; index < 700; index++) {
       const site_url = `${site_}${uniqueId}#`;
       const page = await browser.newPage();
 
